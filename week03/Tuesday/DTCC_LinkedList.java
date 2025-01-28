@@ -1,25 +1,37 @@
-import java.util.ArrayList;
+public class DTCC_LinkedList {
+    private Node head;
+    private int count = 0;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        String name = null;
-        String blah = "";
-        // int num = null; // this is an error
-        Integer num = null;
-
-        ArrayList<Pokemon> pokelist = new ArrayList<>();
-        pokelist.add(new Pokemon());
+    public void add(int it) {
+        // create a node
+        // the new information i'm trying to add
+        // gets wrapped within that node
+        // that node can hold 2 pieces of data
+        // including where to find the NEXT node
+        Node node = new Node(it);
 
 
-        DTCC_LinkedList list = new DTCC_LinkedList();
-        list.add(1);
-        list.add(2);
-        list.add(3);
+        if(head == null) {
+            // list is empty
+            head = node;
+        } else {
+            // list is NOT empty
+            Node iterator = head;
+            for (int i = 0; i < count-1; i++) {
+                iterator = iterator.next;
+            }
+            iterator.next = node;
+        }
 
+        count++;
     }
-}
-class Pokemon {
 
+    class Node {
+        int data;
+        Node next;
+
+        Node(int it) {
+            data = it;
+        }
+    }
 }
